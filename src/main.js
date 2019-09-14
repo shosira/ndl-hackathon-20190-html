@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import axios from 'axios'
 import App from './App.vue'
 import VueSlider from 'vue-slider-component'
 import 'vue-slider-component/theme/default.css'
@@ -10,4 +11,3 @@ Vue.component('VueSlider', VueSlider)
 new Vue({
   render: h => h(App),
 }).$mount('#app')
-
