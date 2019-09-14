@@ -1,30 +1,39 @@
 <template>
   <div id="app">
     <myHeader header="Local Search"></myHeader>
-    <img alt="Vue logo" src="./assets/logo.png">
+    <myMap></myMap>
+    <myResult></myResult>
   </div>
 </template>
 
 <script>
 import myHeader from './components/myHeader.vue'
-import HelloWorld from './components/HelloWorld.vue'
+import myMap from './components/myMap.vue'
+import myResult from './components/myResult.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
-    myHeader
+    myHeader,
+    myMap,
+    myResult
   }
 }
 </script>
 
 <style>
+body {
+  margin: 0;
+  padding: 0;
+  background: #f7f7f7;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  display: grid;
+
 }
 </style>

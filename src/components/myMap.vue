@@ -1,6 +1,6 @@
 <template>
-    <div class="maps">
-    
+    <div id="map">
+        <p>This is a Map!</p>
     </div>
 </template>
 
@@ -8,4 +8,7 @@
 </script>
 
 <style scoped>
+    #map {
+        background: #585858;
+    }
 </style>
