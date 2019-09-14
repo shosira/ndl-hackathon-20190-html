@@ -1,5 +1,5 @@
 <template>
-    <div id="result">
+    <!--div id="result">
         <div class="listbox" v-for="category in categories" :key="category.name">
             <h3>{{ category.name}}</h3>
             <ul>
@@ -9,34 +9,53 @@
                 </li>
             </ul>
         </div>
+    </div-->
+    <div id="result" v-if="result">
+        <div class="listbox">
+            <h3>生物</h3>
+            <ul>
+                <li class="card" v-for="record in result.results.bindings">
+                    <h3>{{ record.label.value }}</h3>
+                    <p>{{ record.lat.value}}, {{ record.long.value }}</p>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
 <script>
 import card from './card.vue'
+
 export default {
   name: 'result',
   components: {
     card
   },
-　data: function() {
-　　　return {
-       categories: [
+  data: function() {
+    return {
+      categories: [
            { name: '文化'},
            { name: '刀剣'},
            { name: '書画'}
-       ],
-　　　　records: [
-　　　　　{ name: '山田', age: '34歳' },
-　　　　　{ name: '田中', age: '45歳' }
-　　　　]
-　　　}
-　　},
-　　computed: {
-　　　limitCount() {
-　　　　return this.records.slice(0,4)
-　　　}
-　　}
+      ],
+      records: [
+         { name: '山田', age: '34歳' },
+         { name: '田中', age: '45歳' }
+      ],
+      result: null
+    }
+  },
+  computed: {
+    limitCount() {
+      return this.records.slice(0,4);
+    }
+  },
+  mounted: function(){
+    const _this = this;
+    this.$bus.on('query-event', function(queryResult) {
+      _this.result = queryResult;
+    })
+  },
 }
 </script>
 
