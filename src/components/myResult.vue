@@ -40,7 +40,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 #result {
     display: flex;
     flex-direction: row;
@@ -48,17 +48,17 @@ export default {
 }
 div.listbox {
     min-width: 20rem;
-}
-ul {
-    list-style: none;
-    margin: 0;
-    padding-left: 0;
-}
-ul li.card {
-    background: #fff;
-    border-radius: 0.5rem;
-    padding: 0.25rem;
-    overflow: hidden;
-    margin-bottom: 0.5rem;
+    ul {
+        list-style: none;
+        margin: 0;
+        padding-left: 0;
+        li.card {
+            background: #fff;
+            border-radius: 0.5rem;
+            padding: 0.25rem;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+    }
 }
 </style>

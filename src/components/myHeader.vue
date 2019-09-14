@@ -32,7 +32,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #header {
     background: #f1f1f1;
     padding: 2rem;
