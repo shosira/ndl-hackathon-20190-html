@@ -2,13 +2,13 @@
   <div id="header">
     <h1>{{ header }}</h1>
       <div class="search-box">
-        <button>現在地で</button>
+        <button v-on:click="searchByCurrentPosition()">現在地で</button>
         <!-- inputにキーワードをバインド -->
         <input v-model="keyword" />
         <!-- ボタンを押すと検索実行。検索結果はresultに入る -->
         <button>Search</button>
       </div>
-    <vue-slider 
+    <vue-slider
         v-model="value"
         :absorb="true"
         :marks="marks"
@@ -18,17 +18,34 @@
 </template>
 
 <script>
+
 export default {
   name: 'myHeader',
   props: {
-    header: String
+    header: String,
   },
   data: function() {
       return {
+          keyword: null,
           value: 0,
-          marks: [0, 10, 30, 60, 100]
+          marks: [0, 10, 30, 60, 100],
+          result: null,
+          coords: [0, 0]
       }
+  },
+  methods: {
+    searchByCurrentPosition: function() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function(position){
+            this.coords = position.coords;
+            this.$bus.emit('position-event', this.coords);
+          }.bind(this)
+        );
+      }
+    }
   }
+
 }
 </script>
 
