@@ -3,7 +3,7 @@
         <div class="listbox" v-for="category in categories" :key="category.name">
             <h3>{{ category.name}}</h3>
             <ul>
-                <li class="card" v-for="record in records" :key="record.name">
+                <li class="card" v-for="record in records" :key="record.name" v-on:click="showModal=true">
                     <h3>{{ record.name }}</h3>
                     <p>説明文</p>
                 </li>

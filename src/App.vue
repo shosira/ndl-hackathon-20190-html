@@ -10,22 +10,30 @@
 import myHeader from './components/myHeader.vue'
 import myMap from './components/myMap.vue'
 import myResult from './components/myResult.vue'
+import myDetails from './components/myDetails.vue'
 
 export default {
   name: 'app',
   components: {
     myHeader,
     myMap,
-    myResult
+    myResult,
+    myDetails
+  },
+  data: function() {
+    return {
+      seen: true
+    }
   }
 }
+
 </script>
 
 <style lang="scss">
 body {
   margin: 0;
   padding: 0;
-  background: #f7f7f7;
+  background: #f8eee7;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
